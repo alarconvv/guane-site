@@ -1,0 +1,41 @@
+<script>
+// Quarto 1.6 accessibility gaps (see scratchpad REVIEW_A11Y.md).
+document.addEventListener("DOMContentLoaded", () => {
+  // Quarto puts include-before-body inside <main>; move the skip link to the first tab stop.
+  // Quarto rewrites in-page hrefs to absolute URLs before this runs, so match the suffix and restore it.
+  const s = document.querySelector('a.visually-hidden-focusable[href$="#quarto-document-content"]');
+  if (s) { s.setAttribute("href", "#quarto-document-content"); document.body.prepend(s); }
+  document.getElementById("quarto-document-content")?.setAttribute("tabindex", "-1");
+});
+window.addEventListener("load", () => {
+  // Name the search button and combobox; drop the invalid role on the mobile menu toggler.
+  document.querySelectorAll(".aa-DetachedSearchButton, .aa-Autocomplete[role=combobox]")
+    .forEach(e => e.setAttribute("aria-label", "Search"));
+  document.querySelectorAll(".navbar-toggler[role=menu]").forEach(e => e.removeAttribute("role"));
+
+  // Screenshot links say they open an enlarged view.
+  document.querySelectorAll("a.lightbox").forEach(a => {
+    const alt = a.querySelector("img")?.alt;
+    if (alt) a.setAttribute("aria-label", alt + " (opens enlarged view)");
+  });
+
+  // GLightbox: move focus into the dialog on open, return it to the thumbnail on close.
+  const lb = window.lightboxQuarto;
+  if (lb) {
+    let opener = null;
+    lb.on("open", () => {
+      opener = document.activeElement;
+      const c = document.querySelector(".glightbox-container");
+      c.setAttribute("aria-modal", "true");
+      c.setAttribute("aria-label", "Enlarged screenshot");
+      const x = c.querySelector(".gclose");
+      if (x) { x.classList.add("focused"); x.focus(); }  // "focused" keeps GLightbox's own Tab trap in charge
+    });
+    lb.on("slide_after_load", ({ slideNode, trigger }) => {
+      const big = slideNode?.querySelector("img"), small = trigger?.querySelector("img");
+      if (big && small) big.alt = small.alt;
+    });
+    lb.on("close", () => opener?.focus());
+  }
+});
+</script>

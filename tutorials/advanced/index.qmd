@@ -1,0 +1,110 @@
+---
+title: "Advanced tutorials"
+description: "Change the controls beyond the defaults, and judge the result in Diagnostics before you interpret it."
+toc-depth: 3
+---
+
+::: {.guane-meta}
+- **You'll learn** What each advanced control changes, its default, when to change it, and what to check afterwards.
+- **Time** 20–40 minutes per family
+- **Prerequisites** The matching beginner tutorial: [Phylo traits](../phylo-traits.qmd), [Ancestral state reconstruction](../asr.qmd), [Diversification](../diversification.qmd) or [SSE models](../sse.qmd). Guane running, with the example loaded and matched in that module's Data card.
+:::
+
+## Choose a family
+
+::: {.guane-module-grid}
+::: {.guane-module-card}
+### [Advanced phylo traits](phylo-traits.qmd)
+
+Fixed or estimated covariance, ML versus REML, and optimizer search.
+
+::: {.guane-family-controls}
+- [Keep correlation parameter fixed]{.ui}
+- [Estimation method]{.ui}
+- [Optimization starts]{.ui}
+- [Maximum rate per branch-length unit]{.ui}
+:::
+:::
+
+::: {.guane-module-card}
+### [Advanced ancestral states](asr.qmd)
+
+Root priors, fixed rate matrices, sampled histories and measurement error.
+
+::: {.guane-family-controls}
+- [Root probabilities (pi)]{.ui}
+- [Supply fixed Q]{.ui}
+- [Stochastic mapping (fixed fitted rates)]{.ui}
+- [Known standard-error column]{.ui}
+:::
+:::
+
+::: {.guane-module-card}
+### [Advanced diversification](diversification.qmd)
+
+Incomplete sampling, rate bounds, profile intervals and missing species.
+
+::: {.guane-family-controls}
+- [Random extant sampling fraction]{.ui}
+- [Rate upper bound (blank = 100 / crown age)]{.ui}
+- [Calculate profile likelihoods]{.ui}
+- [Missing extant species]{.ui}
+:::
+:::
+
+::: {.guane-module-card}
+### [Advanced SSE models](sse.qmd)
+
+State sampling, tied rates, optimizer verification and QuaSSE numerics.
+
+::: {.guane-family-controls}
+- [Sampling fraction for state 0]{.ui}
+- [BiSSE parameter table (CSV)]{.ui}
+- [Verify with an independent optimizer]{.ui}
+- [Trait grid bins]{.ui}
+:::
+:::
+:::
+
+## How to read a control card
+
+Each family page describes its controls in cards like this one:
+
+::: {.guane-control}
+### Root probabilities (pi)
+
+Sets the prior probability of each state at the root of a discrete reconstruction.
+
+Where
+: [[Discrete traits]{.ui} [Advanced analysis controls]{.ui} [Root probabilities (pi)]{.ui}]{.guane-path}
+
+Default
+: [Equal weights]{.ui}
+
+Change it when
+: You have independent evidence about the root state, for example from fossils or an outgroup.
+
+Check after
+: Compare the root node's probabilities with your weights. If they match exactly, the data added nothing at the root.
+:::
+
+- **Where** is the path to the control in the app.
+- **Default** is what Guane uses if you change nothing.
+- **Change it when** names the situation that justifies a change.
+- **Check after** tells you what to read, usually in [Diagnostics]{.ui}, before you trust the new result.
+
+## Judge before you interpret
+
+Five habits apply to every advanced control:
+
+1. **Read [Diagnostics]{.ui} first.** Warnings sit there, not next to the estimates.
+2. **Compare all optimizer starts.** If starts reach different likelihoods, the best one may not be the global optimum.
+3. **A rate at a bound is not an estimate.** It tells you the data cannot pin that rate down.
+4. **Missing weights are deliberate.** Guane withholds weights and intervals when checks fail; do not rebuild them by hand.
+5. **Rerun after every change.** Changing data or settings clears the affected result.
+
+See [Uncertainty and reporting](../../reference/limitations.qmd#uncertainty-reporting), [Quantities that must not be conflated](../../reference/limitations.qmd#quantities) and [Minimum information to report](../../reference/limitations.qmd#minimum-reporting).
+
+## Your own data
+
+Many advanced controls take pasted tables or matrices. [Custom input formats](../../reference/input-formats.qmd) gives the exact format for each box, and [Troubleshooting pasted inputs](../../reference/input-formats.qmd#troubleshooting) covers rejected tables.

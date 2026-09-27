@@ -1,0 +1,95 @@
+---
+title: "Install and launch"
+description: "Get Guane running on your own computer."
+---
+
+After this page, you will have Guane open in your web browser. The app runs locally; the Shiny address that R prints is only reachable from your computer.
+
+## Requirements
+
+- R and, optionally, RStudio.
+- The R packages that Guane uses. [Install dependencies](#install-dependencies) installs them all with one command.
+
+## Get the code
+
+Clone the repository from GitHub:
+
+```bash
+git clone https://github.com/alarconvv/Guane.git
+```
+
+No git? On the [Guane GitHub page](https://github.com/alarconvv/Guane), choose **Code**, then **Download ZIP**, and unzip it.
+
+Then open the `Guane` folder in R or RStudio. For example, open `Guane.Rproj`.
+
+## Install dependencies
+
+Run this once, in R, from the `Guane` folder:
+
+```r
+install.packages(c("remotes", "pkgload", "devtools"))
+remotes::install_deps(dependencies = TRUE)
+```
+
+This installs every package Guane uses, including optional ones that some cards need, such as `hisse` and `DDD`. It also installs Guane's developer and test tools, so it can take 10–30 minutes. If one of those tools (for example `V8`) fails to install, Guane still runs.
+
+## Launch
+
+Choose the path that matches how you use Guane.
+
+### From the project folder
+
+Run one of these in R from the project folder:
+
+```r
+shiny::runApp(".")
+```
+
+or
+
+```r
+devtools::load_all()
+guane::run_app()
+```
+
+The first command runs the project's `app.R`, which needs the `pkgload` package.
+
+### As an installed package
+
+Install the package once from the project folder:
+
+```r
+devtools::install()
+```
+
+Then launch it from any R session:
+
+```r
+guane::run_app()
+```
+
+### After launch
+
+R prints a local address and opens the app in your browser.
+
+::: {.callout-tip}
+To open one module only, pass its name: `guane::run_app("signal")`, `"asr"`, `"div"` or `"sse"`.
+:::
+
+## Missing packages
+
+If R says `there is no package called 'x'`, run `install.packages("x")` and launch again. The command in [Install dependencies](#install-dependencies) avoids this.
+
+## Switch language
+
+Use the language menu at the top right of the app to choose English, Español or Português. Switching language keeps your loaded data, selections and fitted results. Some backend messages and audit text stay in English.
+
+To start in another language, pass `default_lang`:
+
+```r
+guane::run_app(default_lang = "es")
+```
+
+## Next step
+
+Take the [interface tour](tour.qmd) to learn the layout that every tutorial uses.

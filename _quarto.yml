@@ -1,0 +1,78 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "**/*.qmd"
+  resources:
+    - example/*
+
+website:
+  title: "Guane"
+  site-url: https://alarconvv.github.io/guane-site/
+  description: "Documentation and tutorials for Guane, a local R/Shiny app for phylogenetic comparative methods."
+  favicon: images/guane-logo.png
+  search: true
+  page-navigation: true
+  repo-url: https://github.com/alarconvv/Guane
+  navbar:
+    logo: images/guane-logo.png
+    logo-alt: "Guane logo"
+    left:
+      - text: Get started
+        href: get-started/install.qmd
+      - text: Tutorials
+        href: tutorials/phylo-traits.qmd
+      - text: Reference
+        href: reference/input-formats.qmd
+      - text: FAQ
+        href: faq.qmd
+    right:
+      - icon: github
+        href: https://github.com/alarconvv/Guane
+        aria-label: "Guane on GitHub"
+  sidebar:
+    - id: get-started
+      title: Get started
+      style: docked
+      contents:
+        - get-started/install.qmd
+        - get-started/tour.qmd
+        - get-started/example-data.qmd
+    - id: tutorials
+      title: Tutorials
+      style: docked
+      contents:
+        - tutorials/phylo-traits.qmd
+        - tutorials/asr.qmd
+        - tutorials/diversification.qmd
+        - tutorials/sse.qmd
+        - section: "Advanced"
+          href: tutorials/advanced/index.qmd
+          contents:
+            - tutorials/advanced/phylo-traits.qmd
+            - tutorials/advanced/asr.qmd
+            - tutorials/advanced/diversification.qmd
+            - tutorials/advanced/sse.qmd
+    - id: reference
+      title: Reference
+      style: docked
+      contents:
+        - reference/input-formats.qmd
+        - reference/exports.qmd
+        - reference/limitations.qmd
+  page-footer:
+    center: "Documents Guane version 1.0."
+
+format:
+  html:
+    theme:
+      light: [flatly, theme/guane-light.scss]
+      dark: [darkly, theme/guane-light.scss, theme/guane-dark.scss]
+    toc: true
+    toc-depth: 2
+    code-copy: true
+    code-overflow: wrap
+    lightbox: true
+    include-before-body: _includes/skip-link.html
+    include-after-body: _includes/a11y.html
+    lang: en

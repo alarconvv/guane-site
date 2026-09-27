@@ -1,0 +1,56 @@
+---
+title: "FAQ and troubleshooting"
+description: "Fixes for the most common problems when you launch Guane, load data or read results."
+---
+
+## Launching
+
+### R says a package is missing
+
+Each analysis uses its own R backend. Install the package the error names, then launch Guane again. See [Missing packages](get-started/install.qmd#missing-packages).
+
+### `devtools:load_all()` fails
+
+Use two colons: `devtools::load_all()`. Then run `guane::run_app()`. See [Launch](get-started/install.qmd#launch).
+
+## Data and matching
+
+### An analysis rejects my data
+
+Either of these messages means the tree and the trait table do not match: "Resolve data issues before running." or "Match unique taxon labels explicitly in Data before reconstruction; at least three taxa are required." Open [Checking data]{.ui} in the module's [Data]{.ui} card and read the mismatch report. Then click [Use matched taxa]{.ui}. Guane never prunes silently. See [Resolve the mismatch](get-started/example-data.qmd#match).
+
+Remember that each module has its own Data card. Loading data in [Phylo traits]{.ui} does not load it in [SSE models]{.ui}.
+
+### Taxon names look the same but do not match
+
+Names must match exactly. Extra spaces and different capital letters make different names.
+
+### The trait preview shows only some rows
+
+[Trait preview]{.ui} shows 25 rows by default. Change [Preview rows]{.ui} to see more. Analyses always use the whole table.
+
+## Pasted inputs
+
+### A pasted table or matrix is rejected
+
+Check the exact header spelling, the commas, the row count and any duplicate names. Check that you used the current tree's node IDs and state order. If you changed the model, states or regions, click the card's fill button again to refresh the template. See [Troubleshooting pasted inputs](reference/input-formats.qmd#troubleshooting).
+
+## Results
+
+### My result disappeared
+
+Changing data, the selected trait or model settings clears the affected result. Click the card's run button again. Changing language or graph appearance keeps the result. See [What keeps or clears a result](get-started/tour.qmd#what-keeps-or-clears-a-result).
+
+### An estimate, interval or model weight is missing
+
+Guane withholds a number when it is not reliable. Common reasons are failed convergence, a rate at its bound, poor posterior mixing or incompatible likelihoods. The card's [Diagnostics]{.ui} tab says which check failed. An unavailable interval is not a zero-width interval. See [Scientific limitations](reference/limitations.qmd).
+
+### The node pies all look the same
+
+With small or uninformative data, the fitted rate can run to its bound, and every node then shows near-equal probabilities. Check the bound warning in [Diagnostics]{.ui}. See [Discrete traits](tutorials/asr.qmd#discrete-traits).
+
+## Language
+
+### Some text stays in English after I switch language
+
+Some backend messages, audit text and code comments stay in English. Your data, selections and results do not change when you switch language. Research identifiers and observed values are never translated.

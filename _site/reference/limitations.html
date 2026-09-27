@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Assumptions, inference limits and unavailable methods for every Guane analysis card.">
+
+<title>Scientific limitations – Guane</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../reference/exports.html" rel="prev">
+<link href="../images/guane-logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4da854583ea1ad45ae7f54ad08d500bf.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-bbd6f2423a8ca0e71dbe8adc2d30d48d.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-517c72764fd62781acbfb8f4db888dd5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3dd52bc830cc638dd6a4d4fb94112ddf.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/guane-logo.png" alt="Guane logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Guane</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../get-started/install.html"> 
+<span class="menu-text">Get started</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials/phylo-traits.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../reference/input-formats.html" aria-current="page"> 
+<span class="menu-text">Reference</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../faq.html"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alarconvv/Guane"> <i class="bi bi-github" role="img" aria-label="Guane on GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/limitations.html">Scientific limitations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/input-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom input formats</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/exports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exports and reproducibility</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/limitations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Scientific limitations</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#how-to-use-this-document" id="toc-how-to-use-this-document" class="nav-link active" data-scroll-target="#how-to-use-this-document">How to use this document</a></li>
+  <li><a href="#current-scope" id="toc-current-scope" class="nav-link" data-scroll-target="#current-scope">Current scope</a></li>
+  <li><a href="#shared-data" id="toc-shared-data" class="nav-link" data-scroll-target="#shared-data">Shared data and interpretation limits</a></li>
+  <li><a href="#signal-pgls" id="toc-signal-pgls" class="nav-link" data-scroll-target="#signal-pgls">Phylogenetic signal and PGLS</a></li>
+  <li><a href="#pagel-pglm" id="toc-pagel-pglm" class="nav-link" data-scroll-target="#pagel-pglm">Pagel’s correlation and PGLM</a></li>
+  <li><a href="#asr-continuous" id="toc-asr-continuous" class="nav-link" data-scroll-target="#asr-continuous">Continuous ancestral reconstruction</a></li>
+  <li><a href="#asr-discrete" id="toc-asr-discrete" class="nav-link" data-scroll-target="#asr-discrete">Discrete and polymorphic ancestral reconstruction</a></li>
+  <li><a href="#asr-bayesian" id="toc-asr-bayesian" class="nav-link" data-scroll-target="#asr-bayesian">Bayesian ancestral reconstruction</a></li>
+  <li><a href="#div-whole-tree" id="toc-div-whole-tree" class="nav-link" data-scroll-target="#div-whole-tree">LTT and whole tree diversification</a></li>
+  <li><a href="#div-clades" id="toc-div-clades" class="nav-link" data-scroll-target="#div-clades">Clade dependent diversification</a></li>
+  <li><a href="#div-diversity" id="toc-div-diversity" class="nav-link" data-scroll-target="#div-diversity">Diversity dependent diversification</a></li>
+  <li><a href="#sse" id="toc-sse" class="nav-link" data-scroll-target="#sse">State-dependent speciation and extinction</a></li>
+  <li><a href="#uncertainty-reporting" id="toc-uncertainty-reporting" class="nav-link" data-scroll-target="#uncertainty-reporting">Uncertainty and reporting across the platform</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">About this page</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<a class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Scientific limitations</h1>
+</div>
+
+<div>
+  <div class="description">
+    Assumptions, inference limits and unavailable methods for every Guane analysis card.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-warning callout-titled" title="Scientific caution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Scientific caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Different outputs answer different questions. Keep these apart when you read any Guane result:</p>
+<ul>
+<li><strong>Observed values</strong>: the data you supplied at the tips.</li>
+<li><strong>Point estimates</strong>: fitted values under one model and one tree.</li>
+<li><strong>Confidence or profile intervals</strong> and <strong>credible intervals</strong>: different uncertainty summaries with different assumptions.</li>
+<li><strong>Stochastic histories</strong>: sampled possibilities, conditional on fitted or sampled rates.</li>
+<li><strong>Graphical interpolation</strong>: colors along branches that help you read a plot. They are not observed history.</li>
+</ul>
+<p>Failed convergence, rates at bounds, poor mixing, unstable integration or incompatible likelihood bases can stop Guane from showing an estimate or a comparison. Guane reports these conditions instead of showing reliable-looking numbers. See <a href="#quantities">Quantities that must not be conflated</a>.</p>
+</div>
+</div>
+<p>Guane provides supported phylogenetic analyses under explicit statistical models. A completed run, a converged optimizer or a passed software test does not establish that the model fits a particular biological question. This document records the current platform’s documented scientific assumptions, inference limits, backend restrictions and unimplemented capabilities.</p>
+<section id="how-to-use-this-document" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-this-document">How to use this document</h2>
+<p>For each analysis, check the relevant method section and the shared data and uncertainty sections. Report the engine, model, conditioning, data preparation and diagnostic findings alongside the results.</p>
+<p>This page is not a certification of every data regime, and it does not guarantee that future releases keep the same scope.</p>
+</section>
+<section id="current-scope" class="level2">
+<h2 class="anchored" data-anchor-id="current-scope">Current scope</h2>
+<p><strong>Phylo traits.</strong> Blomberg’s K, Pagel’s lambda, PGLS, Pagel’s binary correlation test and supported binary/count/grouped-binomial PGLM workflows.</p>
+<p><strong>Ancestral state reconstruction.</strong> Continuous marginal ML and legacy engines; discrete and polymorphic ML; conditional stochastic maps; supported continuous BM and discrete/polymorphic Bayesian workflows.</p>
+<p><strong>Diversification.</strong> LTT, constant-rate, time-varying, separate-clade, joint clade-dependent and six diversity-dependent model families.</p>
+<p><strong>SSE models.</strong> BiSSE, MuSSE, QuaSSE and binary hidden-state/null models are implemented in independent analysis cards. Their uncertainty, numerical and comparison restrictions are detailed below; implemented does not mean universally validated.</p>
+</section>
+<section id="shared-data" class="level2">
+<h2 class="anchored" data-anchor-id="shared-data">Shared data and interpretation limits</h2>
+<p><strong>Taxon matching.</strong> Traits must be matched explicitly to named tree tips. Duplicate taxa, missing values, incompatible coding and non-finite inputs require review. Matching or pruning changes the analysed sample and potentially its biological meaning; the software does not establish that the retained taxa are representative.</p>
+<p><strong>Tree requirements.</strong> Rooting, bifurcation, positive finite branch lengths and ultrametricity are enforced as required by each method. Requirements differ: do not infer that a tree accepted by one card is suitable for another. No implicit rooting, polytomy resolution, branch repair, recalibration or imputation is performed.</p>
+<p><strong>Branch units.</strong> Branch lengths are not automatically calendar time. Rate estimates are per supplied branch-length unit unless the tree has a justified time calibration. Changing scale changes parameter interpretation and can change numerical behaviour and prior meaning.</p>
+<p><strong>Fixed inputs.</strong> Most analyses condition on one supplied topology, branch lengths and observed trait coding. Tree uncertainty and observation uncertainty are generally not integrated. Known-standard-error options in continuous marginal ML and QuaSSE are specific exceptions, not platform-wide measurement-error support. Multiple-tree LTT displays do not make other engines tree-integrated analyses.</p>
+<p><strong>Transformations.</strong> Log, exponential, quadratic and reciprocal operations create derived columns. Domain and finite-value checks do not determine whether a transformation is biologically appropriate. Squaring can merge positive and negative values; transformed coefficients, rates and priors have a different interpretation. Known standard errors must already be expressed on the selected transformed scale.</p>
+<p><strong>Normality checks.</strong> The Data panel’s Shapiro–Wilk check requires 3–5000 finite, nonconstant observations. It assesses the selected column, not regression residuals or adequacy of a phylogenetic model. A transformation chosen to improve a normality test does not by itself validate subsequent inference.</p>
+<p><strong>Independent contrasts.</strong> PICs are node-level contrasts, not additional species observations. They must not be entered into species-level K/lambda analysis or subjected to a second phylogenetic covariance adjustment. Their independence and interpretation depend on the assumed tree and evolutionary model.</p>
+<p><strong>Examples and screening.</strong> The bundled 20-tip tree and 19-row trait table deliberately mismatch. They test preparation workflows; successful example analyses are not biological findings. Minimum sample-size, rank and workload checks are computational/statistical screens, not proof of identifiability or sufficient information.</p>
+</section>
+<section id="signal-pgls" class="level2">
+<h2 class="anchored" data-anchor-id="signal-pgls">Phylogenetic signal and PGLS</h2>
+<section id="blombergs-k-and-pagels-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="blombergs-k-and-pagels-lambda">Blomberg’s K and Pagel’s lambda</h3>
+<p>Signal is implemented for finite numeric species-level traits, including explicitly transformed columns. Blomberg’s K uses randomization; Pagel’s lambda uses the implemented likelihood test. Both depend on the supplied tree, branch lengths, trait scale and model assumptions. They quantify aspects of phylogenetic pattern, not its causal evolutionary mechanism.</p>
+<p><strong>Uncertainty coverage.</strong> Signal measurement-error models and lambda likelihood profiles remain deferred. A p-value is not a full interval for the strength of signal, and a nonsignificant result is not proof that phylogenetic dependence is absent. Finite randomization precision depends on the chosen replicates and seed.</p>
+<p><strong>Interpretation.</strong> Signal values computed on different transformations describe different trait scales. Observed-tip maps and null plots support interpretation but do not provide ancestral reconstructions or validate the assumed trait process.</p>
+</section>
+<section id="phylogenetic-generalized-least-squares" class="level3">
+<h3 class="anchored" data-anchor-id="phylogenetic-generalized-least-squares">Phylogenetic generalized least squares</h3>
+<p>PGLS supports numeric multiple predictors and Brownian, Grafen, Pagel and Blomberg correlation structures through nlme. The current workflow requires an ultrametric tree. Categorical predictors, interactions and non-ultrametric covariance weighting are deferred for this card; categorical PGLM support does not extend PGLS automatically.</p>
+<p><strong>Model fit.</strong> Coefficients and conditional intervals depend on the specified linear mean and covariance structures. Collinearity checks and normalized-residual/Q–Q plots do not establish correct specification or adequate prediction. Bootstrap uncertainty remains deferred.</p>
+<p><strong>Comparisons.</strong> The accepted comparison holds the data and formula fixed and refits covariance candidates with ML. Do not use REML scores to compare different fixed-effect specifications. Failed candidates remain visible and do not receive weights. No general likelihood-ratio testing facility is implied by the comparison table.</p>
+<p><strong>Inference scope.</strong> Association is not causation. Selecting predictors or transformations after inspecting results introduces an additional selection step that is not included in the reported intervals. Model weights express relative support among the submitted, compatible candidates, not the probability that a model is scientifically true.</p>
+</section>
+<section id="before-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="before-reporting">Before reporting</h3>
+<p>Record the trait and predictor scales, included taxa, covariance structure, ML versus REML choice and any boundary or residual warnings. Explain why that covariance and mean model answer the biological question; do not substitute an acceptable residual plot for that justification.</p>
+</section>
+</section>
+<section id="pagel-pglm" class="level2">
+<h2 class="anchored" data-anchor-id="pagel-pglm">Pagel’s correlation and PGLM</h2>
+<section id="pagels-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="pagels-correlation">Pagel’s correlation</h3>
+<p>This card is Pagel’s 1994 Discrete Correlation Test for two binary traits, not continuous regression. It compares the independent four-rate and dependent eight-rate ARD models with equal root probabilities and multiple starts. Multistate outcomes, directional hypotheses, alternative root priors and a parametric-bootstrap test remain outside the supported card.</p>
+<p><strong>Asymptotic testing.</strong> The reported likelihood-ratio reference is asymptotic. Sparse state combinations, rates near boundaries and convergence failures weaken its interpretation. A dependent model does not identify a causal direction or demonstrate that one trait caused the other.</p>
+</section>
+<section id="phylogenetic-generalized-linear-models" class="level3">
+<h3 class="anchored" data-anchor-id="phylogenetic-generalized-linear-models">Phylogenetic generalized linear models</h3>
+<p>Current engines are binary logistic MPLE/IG10, Poisson GEE with a log link and grouped-binomial GEE with a logit link. Multiple numeric and explicitly coded categorical predictors are supported. These are particular implementations, not interchangeable examples of every generalized or Bayesian phylogenetic model.</p>
+<p><strong>Valid responses.</strong> Count responses must be finite nonnegative integers. Grouped binomial requires integer successes, positive total trials and successes no larger than trials. Binary coding requires an explicit event state. The app does not round counts or silently remove invalid rows.</p>
+<p><strong>Interval meaning.</strong> Binary Wald intervals condition on the fitted phylogenetic alpha. Poisson GEE intervals use scale-adjusted model-based covariance. Grouped-binomial GEE uses fixed tree working correlation, binomial scale one and model-based covariance. They are not bootstrap intervals or a one-cluster sandwich inference.</p>
+<p><strong>Unavailable models.</strong> Count exposure offsets, negative-binomial and zero-inflated models, extra-binomial models and Bayesian PGLM remain deferred. Unequal observation effort cannot be corrected by assuming an offset was fitted when none was provided.</p>
+<p><strong>Comparison and diagnostics.</strong> GEE families have no likelihood/AIC comparison in Guane. Pearson and category checks are descriptive; formal multivariable separation detection is not implemented. Sparse categories, near-boundary probabilities and alpha warnings require attention even when a fit is returned.</p>
+<p><strong>Sensitivity.</strong> Temporary taxon-omission refits show sensitivity to particular observations. They are not calibrated Cook distances, cross-validation or predictive validation. Failed omission refits remain part of the evidence rather than being silently excluded.</p>
+</section>
+</section>
+<section id="asr-continuous" class="level2">
+<h2 class="anchored" data-anchor-id="asr-continuous">Continuous ancestral reconstruction</h2>
+<section id="comparable-marginal-maximum-likelihood" class="level3">
+<h3 class="anchored" data-anchor-id="comparable-marginal-maximum-likelihood">Comparable marginal maximum likelihood</h3>
+<p>The default marginal-ML workflow compares BM, single-optimum OU and EB on a common Gaussian likelihood of observed tips. Known independent observation standard errors can be supplied; they are squared once in the observation covariance. They are not estimated automatically, transformed automatically or treated as arbitrary correlated error.</p>
+<p><strong>OU interpretation.</strong> The implemented OU covariance is root-conditioned, with one constant mean: the root equals the single optimum. It is not a stationary/random-root OU model and does not estimate distinct root and optimum values or multiple selective regimes.</p>
+<p><strong>EB interpretation.</strong> The default EB shape range permits decreasing rates. A custom positive upper bound can permit accelerating evolution, which should not be described as an early burst. Shape search bounds affect the candidate model space and are recorded.</p>
+<p><strong>Prediction intervals.</strong> Node prediction intervals include mean-estimation uncertainty but condition on fitted diffusion and shape parameters and the supplied tree. They exclude estimation uncertainty in diffusion, alpha or r and do not provide simultaneous coverage across nodes. They are not Bayesian credible intervals.</p>
+<p><strong>Numerical comparisons.</strong> Only converged finite candidates are eligible. Bounds and failed starts remain visible. AICc is available only when sample size exceeds the required parameter-count threshold. Candidates with different trait scales, error vectors, taxa or likelihood definitions are not comparable. Dense covariance calculations limit practical interactive scale.</p>
+</section>
+<section id="legacy-continuous-engines" class="level3">
+<h3 class="anchored" data-anchor-id="legacy-continuous-engines">Legacy continuous engines</h3>
+<p>fastAnc and anc.ML remain available with their original meanings. The fastAnc adapter’s marginal tip likelihood and anc.ML’s joint tip-and-fitted-node density are different bases; legacy results are not inserted into the marginal comparison.</p>
+<p><strong>Legacy OU.</strong> The installed anc.ML OU path carries a backend caution about limited testing and supplies no node variance/CI. Its results remain estimates-only. This limitation does not apply to OU intervals from the newer marginal engine.</p>
+<p><strong>Legacy errors and EB.</strong> The legacy anc.BM measurement-error path is not exposed because its covariance scaling was inconsistent with the intended error model. Legacy EB intervals are approximate Hessian-based quantities; invalid uncertainty can require an explicit rerun without intervals. A backend indexing issue was corrected and independently tested.</p>
+<p><strong>Displays.</strong> Maps and phenograms interpolate estimated nodes; they are not sampled OU/EB evolutionary trajectories. PIC Q–Q and decorrelated-tip residual displays are exploratory. The latter can depend on ordering and are not calibrated adequacy tests.</p>
+</section>
+</section>
+<section id="asr-discrete" class="level2">
+<h2 class="anchored" data-anchor-id="asr-discrete">Discrete and polymorphic ancestral reconstruction</h2>
+<section id="maximum-likelihood-and-fixed-rate-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-likelihood-and-fixed-rate-matrices">Maximum likelihood and fixed rate matrices</h3>
+<p>Discrete ML supports 2–10 observed unambiguous states with ER, SYM, ARD or indexed custom constraints. Equal positive indices share rates; zero forbids a transition. States, rate constraints and root weights are scientific assumptions, not formatting choices. Hidden-state and ambiguous-tip models are not part of this workflow.</p>
+<p><strong>Root assumptions.</strong> Equal or named fixed root weights are supported. Local reconstruction and estimated/stationary/FitzJohn root schemes remain outside the validated advanced-ML controls. The optimizer bounds editor requires positive bounds; supplied fixed Q matrices can contain explicit zeros.</p>
+<p><strong>Fixed Q and comparisons.</strong> A supplied Q must respect the selected constraints. Fixed-Q evaluation does not optimize rates and does not produce a model-ranking AIC table. Custom-start comparisons are disabled where the vector could mean different parameters in different candidates. Boundary rates, sparse states and failed convergence qualify interpretation.</p>
+<p><strong>Marginal and joint results.</strong> Node pies are global marginal probabilities conditional on the fitted rates, tree and root weights. They do not integrate rate, model or tree uncertainty. An optional joint-ML assignment is one joint configuration; ties may exist, and its entries are not node probabilities. It never replaces the marginal summaries.</p>
+</section>
+<section id="polymorphic-character-models" class="level3">
+<h3 class="anchored" data-anchor-id="polymorphic-character-models">Polymorphic character models</h3>
+<p>Two or three constituent states are supported, including ER/SYM/ARD/transient constraints. A+B denotes coexistence, not uncertainty about whether A or B was present. Unordered models retain the complete allowed combined-state space, including unobserved combinations.</p>
+<p><strong>Ordering.</strong> Ordered models require an explicit constituent order and maximum polymorphism; only contiguous combinations are allowed. The example’s pairwise combinations may be incompatible with a linear order. Do not delete or recode genuine observations merely to force a model to accept them.</p>
+<p><strong>Missing extensions.</strong> Larger constituent spaces and arbitrary custom polymorphic constraint editing remain deferred. The number of allowed combinations and free rates can exceed the information supplied by observed tips; computational acceptance does not establish identifiability.</p>
+</section>
+<section id="stochastic-mapping-with-a-fixed-q" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-mapping-with-a-fixed-q">Stochastic mapping with a fixed Q</h3>
+<p>These histories condition on one fitted or supplied Q, root weights and tree. They do not sample a posterior distribution over rates and require no rate-chain burn-in. History ranges represent conditional historical variation; Monte Carlo standard error measures simulation precision, not uncertainty in the evolutionary model. This differs from the Bayesian Q-sampling workflow.</p>
+<p><strong>Graphical interpretation.</strong> Selected-state density maps project a multistate history onto that state versus all others; they do not fit a binary model. Occupancy depends on grid resolution and is rounded by phytools to 0.001. Q-diagram thresholds and support symbols affect display, not fitted values. Colored histories and density maps currently use phylograms because of an installed-backend fan-rendering limitation.</p>
+</section>
+</section>
+<section id="asr-bayesian" class="level2">
+<h2 class="anchored" data-anchor-id="asr-bayesian">Bayesian ancestral reconstruction</h2>
+<section id="continuous-brownian-motion" class="level3">
+<h3 class="anchored" data-anchor-id="continuous-brownian-motion">Continuous Brownian motion</h3>
+<p>The anc.Bayes workflow samples diffusion and ancestral states under BM, with exact tip observations and a fixed tree. Bayesian OU/EB, tip measurement error and tree uncertainty are not included. Diffusion has an exponential prior parameterized by its mean; node priors are independent normals. Priors and proposals operate on the selected trait scale and must be assessed for that scale.</p>
+<p>Node summaries are posterior means and equal-tailed credible intervals under those assumptions. They are not HPD intervals or simultaneous bands. Full continuous chains retain burn-in for inspection, but the backend supplies no acceptance counts. Changes between saved/thinned draws are not acceptance rates.</p>
+</section>
+<section id="discrete-and-polymorphic-rate-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="discrete-and-polymorphic-rate-sampling">Discrete and polymorphic rate sampling</h3>
+<p>make.simmap with Q set to mcmc supplies retained rate draws and paired histories. Posterior node probabilities average conditional marginal probabilities over retained Q draws; they are not probabilities calculated at the posterior mean Q. The displayed mean Q is a summary, not the rate matrix used for every history.</p>
+<p><strong>Priors and roots.</strong> Gamma shape/rate parameters and proposal variances require scale-aware choices. The optional empirical prior uses rates fitted from the same data and is empirical Bayes, not an independent external prior. Fixed equal or named root weights are supported; stationary/estimated roots and FitzJohn weighting are excluded to avoid inconsistent sampling and mapping assumptions.</p>
+<p><strong>Backend access.</strong> The discrete/polymorphic backend does not return burn-in traces or acceptance counts and does not expose editable initial rate vectors. It samples starts from priors. Positive burn-in and finite workload limits are enforced; these safeguards do not establish convergence.</p>
+</section>
+<section id="diagnostics-and-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="diagnostics-and-comparison">Diagnostics and comparison</h3>
+<p>Diagnostics use spectral ESS, classic split-Rhat and MCSE, not rank-normalized Rhat or tail ESS. Warnings flag small ESS, Rhat above the implemented threshold, single/stuck chains and unavailable precision. Passing thresholds is not proof of convergence, identifiability or insensitivity to priors. Short/default browser runs are exploratory.</p>
+<p>Node-indicator diagnostics concern sampled state frequencies; the averaged conditional marginal probability is a distinct summary. Constant sampled indicators can have unavailable precision rather than zero uncertainty. Assess multiple chains, traces, effective sample sizes and scientifically plausible alternative priors.</p>
+<p>No Bayesian model-comparison engine or ML/AIC ranking is attached to these posterior samples. No joint-ML assignment is claimed for the Bayesian result. Polymorphic Bayesian models retain the same two/three-constituent, ordering and coexistence restrictions as their ML counterparts. Parsimony remains unimplemented.</p>
+</section>
+</section>
+<section id="div-whole-tree" class="level2">
+<h2 class="anchored" data-anchor-id="div-whole-tree">LTT and whole tree diversification</h2>
+<section id="lineages-through-time" class="level3">
+<h3 class="anchored" data-anchor-id="lineages-through-time">Lineages through time</h3>
+<p>LTT displays reconstructed sampled lineages, including multi-tree displays when supplied. It is not total historical species richness, does not observe extinct lineages, and does not by itself estimate speciation/extinction rates or a test of rate change. Comparisons depend on branch units, crown/stem handling and sampling.</p>
+</section>
+<section id="constant-rate-models" class="level3">
+<h3 class="anchored" data-anchor-id="constant-rate-models">Constant rate models</h3>
+<p>Yule and birth–death models use their implemented crown likelihood and sampling/conditioning settings. Random extant sampling is assumed; nonrandom or deliberately diversified sampling is not modeled. Supplied stems are excluded in the crown fitting path. Extinction can be weakly identified, especially in small clades or near boundaries.</p>
+<p><strong>Intervals.</strong> Curvature intervals are approximate normal intervals and are withheld where curvature, boundaries or rate limits make them unreliable. Profile intervals reoptimize nuisance rates within a finite search domain. A reached search bound is not an infinite confidence interval. Boundary coverage is not calibrated.</p>
+<p><strong>Simulation diagnostics.</strong> Conditional LTT simulations fix fitted rates, random sampling fraction, crown age and sampled tip count. They check branching-time shape, not tree size or age. Envelopes are pointwise, not simultaneous, and exclude parameter/tree uncertainty. The discrepancy tail fraction is descriptive rather than a calibrated p-value; rates are not refitted for each such diagnostic replicate.</p>
+</section>
+<section id="time-varying-models" class="level3">
+<h3 class="anchored" data-anchor-id="time-varying-models">Time varying models</h3>
+<p>The current temporal extension includes exponential-speciation Yule and birth–death candidates, with constant extinction in ExpBD, and compatible constant-rate baselines using the same ODE likelihood. It is not an arbitrary time-function or joint time-varying speciation-and-extinction model. Time is measured backward from the present; beta’s sign must be interpreted using that convention.</p>
+<p><strong>Numerical scope.</strong> Present-day rate bounds do not necessarily bound ancestral rates. Starts, beta bounds, integration tolerance and solver choice matter. Tighter-tolerance likelihood checks and refits detect some instability but do not prove a global optimum.</p>
+<p><strong>Bootstrap and profiles.</strong> Profiles have finite search ranges and approximate reference coverage. Bootstrap refits condition on crown age, sampled tip count and sampling fraction. Successful-refit pointwise bands are not calibrated simultaneous coverage or model-selection uncertainty. Bands require the documented success threshold; failures and boundary frequency remain relevant evidence.</p>
+</section>
+</section>
+<section id="div-clades" class="level2">
+<h2 class="anchored" data-anchor-id="div-clades">Clade dependent diversification</h2>
+<section id="separate-clade-fits" class="level3">
+<h3 class="anchored" data-anchor-id="separate-clade-fits">Separate clade fits</h3>
+<p>The Clade-specific pill fits selected non-overlapping crown clades independently. Each crown must contain at least four sampled tips. Descendants are retained explicitly and ancestral stems excluded. Per-clade random sampling fractions are assumptions supplied by the user.</p>
+<p><strong>Comparison domain.</strong> Delta AIC and weights compare candidates within each clade only. Likelihood or AIC magnitudes from different clades must not be ranked against each other. Estimated rate differences across clades are descriptive and are not a joint rate-shift significance test.</p>
+<p><strong>Selection and uncertainty.</strong> Choosing clades after viewing rates adds selection bias that is not included in intervals. Small clades can provide little information about extinction. Intervals condition on the selected crowns, tree, branch lengths and sampling fractions; they do not include uncertainty in defining the groups.</p>
+</section>
+<section id="joint-clade-dependent-models" class="level3">
+<h3 class="anchored" data-anchor-id="joint-clade-dependent-models">Joint clade dependent models</h3>
+<p>The joint pill fits prespecified whole-tree regions through the native split birth–death likelihood. Shared or region-dependent rates and supported equality/fixed-rate constraints are available. Nested regions are permitted within the implemented selection restrictions. These are joint fits rather than a collection of separately ranked crown fits.</p>
+<p><strong>Shift timing.</strong> The installed backend supports branch-base placement only, represented by split.t = Inf. Other timing choices are not implemented. Shift locations and sampling are fixed inputs, not quantities estimated or averaged over by this workflow.</p>
+<p><strong>Inference.</strong> AIC is conditional on the chosen regions and compatible candidate set. It does not account for searching many possible shift arrangements. The platform provides no calibrated likelihood-ratio p-value or uncertainty analysis over shift placement.</p>
+<p><strong>Rate estimation.</strong> Curvature intervals remain approximate and can be withheld at boundaries or with unstable curvature. Regions with few informative events can have weakly identified rates. Multiple starts and their agreement support numerical review but cannot establish a unique or globally optimal solution.</p>
+<p><strong>Backend failure.</strong> Critical cases with equal speciation and extinction can produce non-finite native likelihoods. Such cases fail visibly rather than being repaired by an unvalidated limiting formula. Time-varying regional rates, unrestricted shift searches and Bayesian regional models remain outside this engine.</p>
+</section>
+<section id="reporting" class="level3">
+<h3 class="anchored" data-anchor-id="reporting">Reporting</h3>
+<p>State whether the analysis used independent crown fits or a joint whole-tree model. Record every node/region, excluded taxa, sampling assumption, shift convention, fixed/shared parameter and failed fit. A biologically justified partition is part of the analysis design, not merely a graph-control choice.</p>
+</section>
+</section>
+<section id="div-diversity" class="level2">
+<h2 class="anchored" data-anchor-id="div-diversity">Diversity dependent diversification</h2>
+<p>The DDD card supports model codes 1, 1.3, 2, 3, 4 and 5: selected speciation-, extinction- and jointly diversity-dependent families. Other DDD variants are not offered pending validation. Analyses use crown age, with soc fixed to 2. Missing extant species are a count, not a sampling fraction.</p>
+<p><strong>Parameter meaning.</strong> K is model-specific. In model 1.3 it denotes diversity at zero speciation; in models 1 and 2 it refers to equal speciation and extinction. It must not be interpreted as a universal ecological carrying capacity across every family. r applies only to model 5.</p>
+<p><strong>Control limits.</strong> The native dd_ML function does not expose arbitrary parameter bounds. GUI starts and fixed values are explicit, and optimization cycles are finite. Numerical resolution, integration tolerances and starting values can affect estimates and likelihoods. A converged return is not evidence of parameter identifiability.</p>
+<p><strong>Comparison.</strong> AIC comparisons are confined to candidates fitted to the same data, conditioning, missing-species count and likelihood basis in this card. They are not compared with other Diversification cards. Failed candidates, numerical instability and known better fits can suppress ranking weights.</p>
+<p><strong>Profiles and robustness.</strong> Profiles fix one estimated parameter and refit nuisance parameters. Approximate chi-square crossings are interpolated within successful grid segments connected to the MLE. Failed points and finite search limits cannot be interpreted as resolved interval endpoints. Multiple-start and resolution/tolerance refits are diagnostic; better estimates are not substituted silently.</p>
+<p><strong>Restricted bootstrap.</strong> Bootstrap currently requires complete sampling, crown analysis and crown-survival conditioning, cond = 1. Crown age is fixed, both crown lineages must survive, and simulated tip counts vary. This is neither a tip-count-conditioned nor an incomplete-sampling bootstrap. Other settings can use supported profile/robustness checks, not this bootstrap.</p>
+<p><strong>Bootstrap uncertainty.</strong> Percentile intervals require at least 20 successful refits and 90% success. Failed simulations/refits remain auditable; non-finite parameter estimates do not count as successes. Intervals exclude tree/model-selection uncertainty and are not calibrated boundary intervals. Replicate elapsed-time limits are best-effort R limits, not hard separate-process timeouts.</p>
+<p><strong>Persistent review.</strong> A fit marked for review cannot regain intervals merely by turning robustness off and rerunning uncertainty. Review findings must be resolved through a new fit. This guard prevents a misleading display; it does not diagnose the biological cause of instability.</p>
+<p><strong>Graphs.</strong> Rate curves show dependence on diversity. The LTT shows surviving reconstructed lineages, not fitted total historical richness. No historical-diversity confidence bands or universally calibrated goodness-of-fit test are claimed.</p>
+</section>
+<section id="sse" class="level2">
+<h2 class="anchored" data-anchor-id="sse">State-dependent speciation and extinction</h2>
+<div class="callout callout-style-default callout-warning callout-titled" title="Can I interpret this SSE result?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Can I interpret this SSE result?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Only if all of these hold:</p>
+<ul>
+<li>No rate is at a bound, and optimizer starts agree.</li>
+<li>Independent verification passed, and Guane shows model weights.</li>
+<li>For BiSSE, the trait-dependent model still wins after you refit against the CID-2 and CID-4 nulls in the hidden-state card.</li>
+<li>The tree is large enough, and each state has enough tips, to separate speciation from extinction.</li>
+</ul>
+<p>Even then, the result is an association under the model, not a cause.</p>
+</div>
+</div>
+<section id="shared-sse-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="shared-sse-assumptions">Shared SSE assumptions</h3>
+<p>All implemented SSE cards condition on one rooted, bifurcating ultrametric tree with positive branch lengths, explicitly matched traits and supplied sampling assumptions. Rates use branch-length units. Fossils, unresolved clades, tree uncertainty, estimated sampling fractions and ambiguous observations are outside these workflows. Positive supplied stems are excluded in crown-based paths with a warning.</p>
+<p><strong>Interpretation.</strong> Trait association is not causality. Small or imbalanced states, weak extinction identification, local optima and parameter boundaries can make apparently precise point estimates misleading. Multiple starts and numerical checks diagnose some failures but cannot prove identifiability, model adequacy or a global optimum. The bundled example tests the interface; it is not evidence for a biological trait effect.</p>
+<p><strong>Comparison domain.</strong> Compare candidates only when fitted to identical data and compatible root, survival, sampling and likelihood settings within the relevant card. Do not combine AIC from BiSSE, MuSSE, QuaSSE and HiSSE cards. The hidden-state card refits a BiSSE-equivalent model using its own backend to support a consistent candidate set. Relative support depends on the supplied candidates and does not establish that any model is true.</p>
+<p><strong>Uncertainty and graphs.</strong> BiSSE/MuSSE offer optional approximate profile intervals for verified stable interior fits. QuaSSE and hidden-state intervals, SSE credible intervals, calibrated likelihood-ratio tests, Bayesian SSE and simulation-based adequacy remain unavailable. Likelihood slices hold nuisance parameters fixed; they are not refitted profiles or confidence limits. Rate plots show point estimates and tree plots show observed traits, not hidden ancestral assignments.</p>
+</section>
+<section id="bisse" class="level3">
+<h3 class="anchored" data-anchor-id="bisse">BiSSE</h3>
+<p>BiSSE requires two explicitly coded observed states and known state-specific random sampling fractions. Preset and custom fixed/shared rate constraints are supported; arbitrary formula constraints are not. Missing, ambiguous and polymorphic states are rejected.</p>
+<p>The standalone trait-independent candidate does not represent hidden rate heterogeneity. Binary HiSSE and CID nulls are now available in their separate card; candidates must be refitted there before comparison. Unmodeled heterogeneity can mimic trait dependence even when a standalone BiSSE comparison appears favorable. Failed or unstable optimization and known better feasible candidates can suppress model weights.</p>
+</section>
+<section id="musse" class="level3">
+<h3 class="anchored" data-anchor-id="musse">MuSSE</h3>
+<p>MuSSE supports 2–8 observed categorical states with k(k+1) unrestricted rates. Extra unobserved states and missing, ambiguous or polymorphic observations are not supported. ROOT.EQUI is unavailable in the installed multistate backend; OBS, FLAT and GIVEN are exposed.</p>
+<p>No multistate hidden-state null engine or ancestral histories are provided. Binary CID models do not supply a null for a multistate MuSSE analysis. State imbalance and the rapidly growing rate count can overwhelm available information. Multiple starts, tighter ODE tolerances and feasible-candidate checks do not establish global optimality. Weights concern compatible candidates in one run; duplicate equivalent candidates should be avoided.</p>
+</section>
+<section id="profile-intervals-and-optimizer-verification" class="level3">
+<h3 class="anchored" data-anchor-id="profile-intervals-and-optimizer-verification">Profile intervals and optimizer verification</h3>
+<p>BiSSE/MuSSE profiles refit nuisance groups at each finite-grid point using two deterministic starts and check tighter ODE evaluation. Interval endpoints interpolate approximate chi-square crossings only across successful connected segments. Search bounds are not confidence endpoints; failed segments and better likelihoods suppress affected endpoints. Boundary, unstable or independently unverified original fits cannot receive profiles. Intervals condition on the tree, model, coding, sampling and root treatment; no simultaneous, model-selection or boundary-calibrated coverage is claimed. Only one selected free-group profile is saved per card.</p>
+<p>Independent optimization in BiSSE, MuSSE and QuaSSE swaps nlminb and L-BFGS-B. The original estimates remain unchanged even if the check finds a better point. Weights require repeatable interior fits, successful starts and agreement, and remain unavailable when verification is disabled. A fit flagged by a better profile or unresolved robustness check requires a new fit; hiding the diagnostic does not restore support.</p>
+</section>
+<section id="quasse" class="level3">
+<h3 class="anchored" data-anchor-id="quasse">QuaSSE</h3>
+<p>QuaSSE assumes finite continuous observations with known positive Gaussian measurement standard errors, constant Brownian drift/diffusion, a known global random sampling fraction and selected constant, exponential or sigmoid speciation/extinction functions. The GUI error default of 1 is an editable starting value, not an estimate from the data. Diffusion is a variance rate, not a standard deviation. Standard errors must match the selected trait scale.</p>
+<p>Zero or missing errors, estimated error variance, arbitrary rate functions, split models and continuous hidden-state/null models are not supported. Functional misspecification, extreme observations, short sister branches, narrow error densities and grid boundaries can destabilize inference. Sigmoid symmetries or nearly constant curves can weaken identification. Fixed parameters are treated as known; uncertainty from estimating them elsewhere is not propagated.</p>
+<p><strong>Numerical resolution.</strong> Results depend on finite trait domain, FFT resolution, time step and bounds. The original refinement diagnostic doubles the grid and halves the step at the fitted parameters. An additional explicit robustness action now refits on refined and widened grids while retaining the original estimates. It adjusts for the installed backend’s survival-conditioned dx² likelihood constant and retains both raw and adjusted values. A passing check is not proof of numerical convergence. The widening refit cannot compare likelihoods under FLAT roots because widening also changes that prior. Unresolved checks suppress weights persistently until a new fit. Refits currently require nx at most 2048 and widened domain multiplier at most 30. Raw AIC/log-likelihood values must not be compared across grids or other likelihood bases.</p>
+<p><strong>Displays and inference.</strong> Error bars are ±1 supplied measurement SE, not confidence intervals. Rate curves cover the observed trait range and are point estimates. The optional constant-rate comparator is not a continuous hidden-state null; binary CID models cannot fill that role. No equilibrium root distribution or inferred ancestral history is claimed.</p>
+</section>
+<section id="binary-hidden-state-and-character-independent-models" class="level3">
+<h3 class="anchored" data-anchor-id="binary-hidden-state-and-character-independent-models">Binary hidden state and character independent models</h3>
+<p>The hidden-state card supports HiSSE, CID-2, CID-4, same-backend BiSSE and custom models with two or four hidden classes for a binary observed trait. CID models tie diversification parameters across observed states within each hidden class; hidden classes still allow rate heterogeneity. These nulls address a particular model structure, not every possible source of confounding. Multistate and continuous hidden models remain unavailable.</p>
+<p><strong>Optimizer status.</strong> The native hisse 2.1.11 result omits termination status, but Guane now retains the underlying nloptr record in a private call environment and verifies the objective at the returned solution. The installed namespace and likelihood are unchanged. Evaluation/time limits are not convergence. Optional independent nlminb refits use the same native likelihood; agreement is not an independent integration-accuracy check. This adapter is version-gated to hisse 2.1.11.</p>
+<p><strong>Comparison safeguards.</strong> Weights require compatible, converged, repeatable interior fits with independent optimizer agreement, no duplicate model specifications and no known better feasible point. Failed verification or too few starts withholds weights; finite fits remain inspectable. These checks do not prove global optimality, identifiability, adequate fit or causal trait effects.</p>
+<p><strong>Parameters and roots.</strong> Turnover equals lambda + mu; extinction fraction equals mu/lambda. Hidden labels are exchangeable between fits and should not be treated as observed biological categories. Sampling fractions are supplied per observed state. Given observed-state root probabilities are divided equally among hidden classes; hidden root proportions are not independently editable or estimated by that option.</p>
+<p><strong>Constraint limits.</strong> Custom models support equality groups and zero extinction/transition rates, not arbitrary fixed positive rates or simultaneous changes in observed and hidden states. Native bounded search retains the lower log-rate bound of −20. The evaluation budget is now editable (default 100000), with termination status reported. More starts and optional annealing cannot guarantee the best possible fit.</p>
+<p><strong>Unavailable inference.</strong> Hidden ancestral assignments, fossil conditioning, confidence intervals, calibrated tests and Bayesian inference are not implemented. Graphs of observed tips must not be read as reconstructions of hidden regimes. Uncertainty in topology, coding, sampling or model selection is not propagated.</p>
+</section>
+</section>
+<section id="uncertainty-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-reporting">Uncertainty and reporting across the platform</h2>
+<section id="quantities" class="level3">
+<h3 class="anchored" data-anchor-id="quantities">Quantities that must not be conflated</h3>
+<p><strong>Conditional prediction intervals.</strong> Describe node-prediction uncertainty under a fitted covariance model and tree. They need not include covariance-parameter uncertainty and are not posterior credible intervals.</p>
+<p><strong>Curvature and profile intervals.</strong> Use likelihood approximations or reference thresholds. Finite searches, parameter boundaries and weak identifiability can invalidate simple nominal-coverage interpretations.</p>
+<p><strong>Bayesian credible intervals.</strong> Summarize a posterior under specified priors, model and fixed inputs, with accuracy limited by sampling and convergence. They do not eliminate model or prior sensitivity.</p>
+<p><strong>History ranges and bootstrap bands.</strong> Have the particular conditioning of their simulation/refitting procedure. A pointwise envelope is not a simultaneous band; successful-refit summaries must be read alongside failure counts.</p>
+<p><strong>Monte Carlo error.</strong> Measures numerical precision of simulation summaries. A small MCSE does not mean the biological estimate has little uncertainty.</p>
+</section>
+<section id="minimum-reporting" class="level3">
+<h3 class="anchored" data-anchor-id="minimum-reporting">Minimum information to report</h3>
+<p>Identify the Guane version or dated snapshot, package versions, method/engine, likelihood or posterior framework, tree source and units, included taxa, coding and transformations. Record model/root/sampling assumptions, fixed and estimated parameters, starts, bounds, priors, seeds and convergence or numerical warnings as relevant.</p>
+<p>Name the interval type and reference level; explain what is held fixed and excluded. Report failed candidates and bootstrap refits, unresolved limits and sensitivity checks. State the candidate set and comparison basis. Preserve the exported data/settings and R script so another analyst can reproduce the saved graph and, where supported, rerun the fit.</p>
+</section>
+<section id="platform-and-validation-boundaries" class="level3">
+<h3 class="anchored" data-anchor-id="platform-and-validation-boundaries">Platform and validation boundaries</h3>
+<p>Long fits run in a background R process by default, so you can keep using the app. Dense matrices, growing state spaces and stored histories can limit interactive scale. Workload guards are computational safeguards, not sample-size or power guarantees. Broad accessibility, performance and predictive-validation reviews remain separate tasks.</p>
+<p>EN/ES/PT switching preserves analysed data and results, but some raw backend messages, audit strings and code comments remain English. Research identifiers and observed values are intentionally unchanged. Read the numerical output and method settings rather than relying on translated labels alone.</p>
+<p>Acceptance tests establish agreement and behaviour for tested cases; they do not establish universal interval coverage or scientific validity for arbitrary data. Temporary installation/app checks are not a complete package-release or R CMD check certification. QuaSSE/hidden-state uncertainty intervals, Bayesian SSE and parsimony remain unimplemented.</p>
+</section>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">About this page</h2>
+<p>These limitations describe Guane version 1.0. They are backed by the project’s acceptance tests and by the analysis engines themselves, the <code>R/core_mod_*.R</code> files in the <a href="https://github.com/alarconvv/Guane">Guane repository</a>. The page is revised after an engine is added, a likelihood or sampler changes, an uncertainty calculation changes, or a backend package version changes.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Quarto 1.6 accessibility gaps (see scratchpad REVIEW_A11Y.md).
+document.addEventListener("DOMContentLoaded", () => {
+  // Quarto puts include-before-body inside <main>; move the skip link to the first tab stop.
+  // Quarto rewrites in-page hrefs to absolute URLs before this runs, so match the suffix and restore it.
+  const s = document.querySelector('a.visually-hidden-focusable[href$="#quarto-document-content"]');
+  if (s) { s.setAttribute("href", "#quarto-document-content"); document.body.prepend(s); }
+  document.getElementById("quarto-document-content")?.setAttribute("tabindex", "-1");
+});
+window.addEventListener("load", () => {
+  // Name the search button and combobox; drop the invalid role on the mobile menu toggler.
+  document.querySelectorAll(".aa-DetachedSearchButton, .aa-Autocomplete[role=combobox]")
+    .forEach(e => e.setAttribute("aria-label", "Search"));
+  document.querySelectorAll(".navbar-toggler[role=menu]").forEach(e => e.removeAttribute("role"));
+
+  // Screenshot links say they open an enlarged view.
+  document.querySelectorAll("a.lightbox").forEach(a => {
+    const alt = a.querySelector("img")?.alt;
+    if (alt) a.setAttribute("aria-label", alt + " (opens enlarged view)");
+  });
+
+  // GLightbox: move focus into the dialog on open, return it to the thumbnail on close.
+  const lb = window.lightboxQuarto;
+  if (lb) {
+    let opener = null;
+    lb.on("open", () => {
+      opener = document.activeElement;
+      const c = document.querySelector(".glightbox-container");
+      c.setAttribute("aria-modal", "true");
+      c.setAttribute("aria-label", "Enlarged screenshot");
+      const x = c.querySelector(".gclose");
+      if (x) { x.classList.add("focused"); x.focus(); }  // "focused" keeps GLightbox's own Tab trap in charge
+    });
+    lb.on("slide_after_load", ({ slideNode, trigger }) => {
+      const big = slideNode?.querySelector("img"), small = trigger?.querySelector("img");
+      if (big && small) big.alt = small.alt;
+    });
+    lb.on("close", () => opener?.focus());
+  }
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/alarconvv\.github\.io\/guane-site\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../reference/exports.html" class="pagination-link" aria-label="Exports and reproducibility">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exports and reproducibility</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Documents Guane version 1.0.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

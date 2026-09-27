@@ -1,0 +1,45 @@
+/*-- scss:defaults --*/
+// Guane docs theme (dark). Token overrides only; component rules come from guane-light.scss.
+// Use: theme: dark: [darkly, theme/guane-light.scss, theme/guane-dark.scss]
+
+$guane-bg:          #11191b;
+$guane-fg:          #e4ebe7;
+$guane-muted:       #a9b8b4;
+$guane-link:        #7fd4a4;
+$guane-link-hover:  #9fd9ea;
+$guane-navbar-bg:   #0a3d4d;
+$guane-navbar-fg:   #ffffff;
+$guane-navbar-hl:   #cfe6ec;
+$guane-hero-from:   #153a27;
+$guane-hero-to:     #1f5135;
+$guane-hero-fg:     #ffffff;
+$guane-hero-lead:   #ffffff;
+$breadcrumb-bg:     transparent;
+$guane-surface:     #1a2427;
+$guane-sand:        #211d15;
+$guane-eyebrow:     #d9b27c;
+$guane-border:      #33433f;
+$guane-shot-border: #5d6e6a;
+$guane-code-bg:     #18252a;
+$guane-code-fg:     #e4ebe7;
+$guane-code-inline: #f0c48a;
+$guane-th-bg:       #1c3327;
+$guane-th-fg:       #cde8d6;
+$guane-ui-bg:       #17343d;
+$guane-ui-fg:       #cfe6ec;
+$guane-ui-border:   #4f8797;
+$guane-step-bg:     #5cc088;
+$guane-step-fg:     #11191b;
+$guane-focus:       #ffd166;
+$guane-focus-nav:   #ffd166;
+$guane-note:        #4fb3cf;
+$guane-tip:         #5cc088;
+$guane-warning:     #e0a33a;
+$guane-important:   #ef7b7b;
+$guane-meta-line:   #4a3f2c;
+$guane-green:       #5cc088;   // title rule on the dark bg
+$guane-selection:   #245563;
+
+/*-- scss:rules --*/
+// Hero primary button text stays readable on the darker gradient.
+.guane-hero .guane-btn-primary, .guane-hero .guane-btn-primary:hover { color: #153a27; }
